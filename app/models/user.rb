@@ -10,9 +10,9 @@ class User < ApplicationRecord
   has_many :ownerships
   has_many :items, through: :ownerships
   has_many :wants
-  has_many :want_items, through: :wants, class_name: "Item", source: :item
+  has_many :want_items, through: :wants, class_name: 'Item', source: :item
   
-   def want(item)
+  def want(item)
     self.wants.find_or_create_by(item_id: item.id)
   end
 
